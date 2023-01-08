@@ -1,3 +1,4 @@
+from filestack import Client
 class FileSharer:
     """Uploading a pdf file filstack and share the URL"""
 
