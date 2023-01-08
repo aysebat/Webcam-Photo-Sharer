@@ -20,14 +20,21 @@
     GridLayout:
         cols : 1
         Image:
+            id: img
+            size_hint_y: 0.7
         Button:
             text: 'Create Sharable Link'
+            size_hint_y: 0.1
+            on_press: root.create_link()
         Label:
+            id: link
             text: ''
+            size_hint_y: 0.1
         GridLayout:
             cols: 2
             Button:
                 text: 'Copy Link'
+
             Button:
                 text: 'Open Link'
 
