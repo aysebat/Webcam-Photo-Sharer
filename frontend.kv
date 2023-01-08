@@ -1,0 +1,23 @@
+<CameraScreen>:
+    GridLayout:
+        cols: 1
+        Camera:
+            id: camera
+            resolution: (640, 480)
+            play: False
+            size_hint_y: 0.8
+        Button:
+            id: start
+            text: 'Start Camera'
+            size_hint_y: 0.1
+            on_press: root.start() if root.ids.camera.play == False else root.stop()
+        Button:
+            text: 'Capture'
+            size_hint_y: 0.1
+<RootWidget>:
+    CameraScreen:
+        id: camera_screen
+        name: 'camera_screen'
+
+
+
