@@ -1,6 +1,7 @@
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
+import time
 from filesharer import FileSharer
 Builder.load_file('frontend.kv')
 
@@ -15,7 +16,9 @@ class CameraScreen(Screen):
         self.ids.start.text = 'Start Camera'
         self.ids.camera.texture = None
     def capture(self):
-        pass
+        currentTime = time.strftime('%Y%m%d-%H%M%S')
+        fileName ="images/"+currentTime+".png"
+        self.ids.camera.export_to_png(fileName)
 
 
 class ImageScreenClass(Screen):
