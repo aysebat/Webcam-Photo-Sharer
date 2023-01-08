@@ -17,7 +17,7 @@ class CameraScreen(Screen):
         self.ids.camera.texture = None
     def capture(self):
         currentTime = time.strftime('%Y%m%d-%H%M%S')
-        fileName ="images/"+currentTime+".png"
+        fileName =f"images/{currentTime}.png"
         self.ids.camera.export_to_png(fileName)
 
 
