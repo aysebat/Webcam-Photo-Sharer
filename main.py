@@ -4,6 +4,7 @@ from kivy.lang import Builder
 import time
 from filesharer import FileSharer
 from kivy.core.clipboard import Clipboard
+import webbrowser
 
 Builder.load_file('frontend.kv')
 
@@ -32,6 +33,7 @@ class CameraScreen(Screen):
 
 
 class ImageScreen(Screen):
+    link_message = "-.- Create a link first -.-"
     def create_link(self):
         filepath = App.get_running_app().root.ids.camera_screen.filepath
         fileshare = FileSharer(filepath=filepath)
@@ -39,11 +41,18 @@ class ImageScreen(Screen):
         self.ids.link.text = self.url
 
     def copy_link(self):
+        """Copy Link to the clipboard available for pasting"""
         try:
             Clipboard.copy(self.url)
         except:
-            self.ids.link.text = "Create a link first"
+            self.ids.link.text = self.link_message
 
+    def open_link(self):
+        """"Open link in the browser"""
+        try:
+            webbrowser.open(self.url)
+        except:
+            self.ids.link.text = self.link_message
 
 class RootWidget(ScreenManager):
     pass
